@@ -1,0 +1,5 @@
+node_modules/
+package.json
+package-lock.json
+MANUAL_INSTRUCOES.md
+worker-v2.js
