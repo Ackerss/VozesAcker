@@ -179,6 +179,18 @@
             <div class="status-log" id="statusLog">
                 <div class="status-content" id="statusContent"></div>
             </div>
+
+            <!-- Cache History -->
+            <div class="card glass">
+                <div class="card-header">
+                    <h2><i class="fas fa-clock-rotate-left"></i> Frases Já Geradas (Cache)</h2>
+                </div>
+                <div class="card-body">
+                    <p class="hint" style="margin-bottom:8px"><i class="fas fa-bolt"></i> Frases já geradas são
+                        reproduzidas do cache local, sem gastar API!</p>
+                    <div id="cacheHistory"></div>
+                </div>
+            </div>
         </section>
 
         <!-- ==================== TAB: MODO LOTE ==================== -->
@@ -190,7 +202,8 @@
                 <div class="card-body">
                     <div class="batch-instructions">
                         <p><i class="fas fa-info-circle"></i> Digite uma frase por linha no formato:
-                            <code>NomeDoArquivo | Frase a ser falada</code></p>
+                            <code>NomeDoArquivo | Frase a ser falada</code>
+                        </p>
                         <p>Sem nome = gera automático (<code>audio_001.mp3</code>, <code>audio_002.mp3</code>...)</p>
                     </div>
                     <textarea id="txtBatch" class="text-input batch-input" rows="10" placeholder="intro_game | Bem vindo ao mundo do jogo!
@@ -239,13 +252,14 @@ boss_fight | Prepare-se para o chefe!</textarea>
                         <button class="btn-sm" id="btnLoadFile" title="Carregar arquivo">
                             <i class="fas fa-folder-open"></i> Abrir
                         </button>
-                        <input type="file" id="fileInput" accept="audio/*" class="hidden">
+                        <input type="file" id="fileInput" accept="audio/mpeg,audio/wav,audio/ogg,audio/mp3,audio/*"
+                            class="hidden">
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="editor-empty" id="editorEmpty">
                         <i class="fas fa-cloud-arrow-up"></i>
-                        <p>Arraste um áudio aqui ou clique em <strong>Abrir</strong></p>
+                        <p>Arraste um áudio (MP3, WAV, OGG) aqui ou clique em <strong>Abrir</strong></p>
                         <p class="hint">Ou gere uma voz e clique em "Editar"</p>
                     </div>
                     <div class="editor-loaded hidden" id="editorLoaded">
@@ -278,10 +292,17 @@ boss_fight | Prepare-se para o chefe!</textarea>
                                 <div class="tool-row">
                                     <button class="btn-tool" id="btnTrimSilence"
                                         title="Remove silêncio do início e fim">
-                                        <i class="fas fa-wand-magic-sparkles"></i> Auto-Trim
+                                        <i class="fas fa-wand-magic-sparkles"></i> Remover Silêncios
                                     </button>
-                                    <button class="btn-tool" id="btnCropSelection" title="Manter apenas a seleção">
-                                        <i class="fas fa-crop"></i> Recortar Seleção
+                                    <button class="btn-tool" id="btnSplitAudio"
+                                        title="Divide o áudio na posição do cursor">
+                                        <i class="fas fa-divide"></i> Dividir Áudio
+                                    </button>
+                                    <button class="btn-tool" id="btnDeleteStart" title="Apaga do início até o cursor">
+                                        <i class="fas fa-backward-step"></i> Apagar Início
+                                    </button>
+                                    <button class="btn-tool" id="btnDeleteEnd" title="Apaga do cursor até o final">
+                                        <i class="fas fa-forward-step"></i> Apagar Final
                                     </button>
                                 </div>
                             </div>
@@ -374,8 +395,8 @@ boss_fight | Prepare-se para o chefe!</textarea>
                         <h3><i class="fas fa-circle-info"></i> Sobre</h3>
                         <p class="about-text">
                             <strong>VozForge</strong> — Gerador de vozes neurais naturais.<br>
-                            Vozes gratuitas: Microsoft Edge Neural TTS (13 vozes pt-BR)<br>
-                            Vozes premium: ElevenLabs Multilingual v2<br>
+                            Vozes gratuitas: Microsoft Edge Neural TTS (3 vozes pt-BR)<br>
+                            Vozes premium: ElevenLabs Multilingual v2 (10 vozes)<br>
                             Worker: limite de 100.000 req/dia (Cloudflare Free)
                         </p>
                     </div>
