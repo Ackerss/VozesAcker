@@ -1,5 +1,5 @@
 /**
- * VozForge v2 — Gerador de Vozes Neurais
+ * VozesAcker v2 — Gerador de Vozes Neurais
  * Motor: Edge-TTS (Cloudflare Worker) + ElevenLabs API
  * Editor: WaveSurfer.js + Web Audio API
  * Features: Favoritos, Cache, Demos, Batch
@@ -20,16 +20,16 @@ const EDGE_VOICES = [
 ];
 
 const ELEVEN_VOICES = [
-    { id: 'pNInz6obpgDQGcFmaJgB', name: 'Adam', gender: 'male', desc: 'Narrador Profundo' },
-    { id: '21m00Tcm4TlvDq8ikWAM', name: 'Rachel', gender: 'female', desc: 'Padrão/Clara' },
-    { id: 'ErXwobaYiN019PkySvjV', name: 'Antoni', gender: 'male', desc: 'Enérgico/Games' },
-    { id: 'onwK4e9ZLuTAKqWW03F9', name: 'Daniel', gender: 'male', desc: 'Jornalista' },
-    { id: 'XB0fDUnXU5powFXDhCwa', name: 'Charlotte', gender: 'female', desc: 'Suave' },
-    { id: 'N2lVS1w4EtoT3dr4eOWO', name: 'Callum', gender: 'male', desc: 'Vilão/Rouco' },
-    { id: 'pqHfZKP75CvOlQylNhV4', name: 'Bill', gender: 'male', desc: 'Sábio' },
-    { id: 'D38z5RcWu1voky8WS1ja', name: 'Fin', gender: 'male', desc: 'Jovem Gamer' },
-    { id: 'Xb7hH8MSUJpSbSDYk0k2', name: 'Alice', gender: 'female', desc: 'Notícias' },
-    { id: 'z9fAnlkpzviPz146aGWa', name: 'Glinda', gender: 'female', desc: 'Bruxa' },
+    { id: 'pNInz6obpgDQGcFmaJgB', name: 'Adam', gender: 'male', desc: 'Narrador Profundo', demo: 'demo/adam.mp3' },
+    { id: '21m00Tcm4TlvDq8ikWAM', name: 'Rachel', gender: 'female', desc: 'Padrão/Clara', demo: 'demo/rachel.mp3' },
+    { id: 'ErXwobaYiN019PkySvjV', name: 'Antoni', gender: 'male', desc: 'Enérgico/Games', demo: 'demo/antoni.mp3' },
+    { id: 'onwK4e9ZLuTAKqWW03F9', name: 'Daniel', gender: 'male', desc: 'Jornalista', demo: 'demo/daniel.mp3' },
+    { id: 'XB0fDUnXU5powFXDhCwa', name: 'Charlotte', gender: 'female', desc: 'Suave', demo: 'demo/charlotte.mp3' },
+    { id: 'N2lVS1w4EtoT3dr4eOWO', name: 'Callum', gender: 'male', desc: 'Vilão/Rouco', demo: 'demo/callum.mp3' },
+    { id: 'pqHfZKP75CvOlQylNhV4', name: 'Bill', gender: 'male', desc: 'Sábio', demo: 'demo/bill.mp3' },
+    { id: 'D38z5RcWu1voky8WS1ja', name: 'Fin', gender: 'male', desc: 'Jovem Gamer', demo: 'demo/fin.mp3' },
+    { id: 'Xb7hH8MSUJpSbSDYk0k2', name: 'Alice', gender: 'female', desc: 'Notícias', demo: 'demo/alice.mp3' },
+    { id: 'z9fAnlkpzviPz146aGWa', name: 'Glinda', gender: 'female', desc: 'Bruxa', demo: 'demo/glinda.mp3' },
 ];
 
 // ============================================
